@@ -1,0 +1,16 @@
+package com.cg.api.WebsiteService.entity;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class HelloService {
+
+	private final RestTemplate restTemplate;
+	
+	 public HelloService(RestTemplate rest) {
+		    this.restTemplate = rest;
+		  }
+
+
+}
