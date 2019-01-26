@@ -146,11 +146,9 @@ public class BankAppController {
 			Transaction transaction = transactionList.get(value);
 			transactions.add(transaction);
 		}
-		CurrentDataSet dataSet = new CurrentDataSet(transactions, previous,next);
-		ModelAndView modelView = new ModelAndView();
-		modelView.addObject("currentDataSet", dataSet);
-		modelView.setViewName("statements");
-		modelView.addObject("message", "Currently no infiormation is available.Try again later..!");
-		return modelView;
+		currentDataSet.setPreviousLink(previous);
+		currentDataSet.setNextLink(next);
+		currentDataSet.setTransactions(transactions);
+		return new ModelAndView("statements", "currentDataSet", currentDataSet);
 	}
 }
